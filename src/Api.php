@@ -223,7 +223,7 @@ class Api
         }
 
         $url = $this->baseUrl . $endpoint;
-
+var_dump($url);
         return $this->performRequest($method, $url, $options);
     }
 

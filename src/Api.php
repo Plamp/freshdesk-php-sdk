@@ -223,7 +223,7 @@ class Api
         }
 
         $url = $this->baseUrl . $endpoint;
-var_dump($url);
+
         return $this->performRequest($method, $url, $options);
     }
 
@@ -246,6 +246,7 @@ var_dump($url);
         try {
             switch ($method) {
                 case 'GET':
+                    var_dump($this->client->get($url, $options));
                     return json_decode($this->client->get($url, $options)->getBody(), true);
                 case 'POST':
                     return json_decode($this->client->post($url, $options)->getBody(), true);

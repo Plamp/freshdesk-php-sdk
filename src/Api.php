@@ -192,7 +192,8 @@ class Api
         $this->baseUrl = sprintf('https://%s.freshdesk.com/api/v2', $domain);
 
         $this->client = new Client([
-                'auth' => [$apiKey, 'X']
+                'auth' => [$apiKey, 'X'],
+                'verify' => false
             ]
         );
 
@@ -246,7 +247,6 @@ class Api
         try {
             switch ($method) {
                 case 'GET':
-                    var_dump($this->client->get($url, $options));
                     return json_decode($this->client->get($url, $options)->getBody(), true);
                 case 'POST':
                     return json_decode($this->client->post($url, $options)->getBody(), true);
